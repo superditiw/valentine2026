@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Gifts!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-gift">
+        <h1>YAAYY!! pilih hadiahnya 2 aja yaa</h1>
+        <h5>NB : kalau mau ambil semua ada syaratnya</h5>
+
+        <div class="gifts">
+            <button class="gift-btn" data-gift="Flower">🎁</button>
+            <button class="gift-btn" data-gift="Chocolate">🎁</button>
+            <button class="gift-btn" data-gift="Love">🎁</button>
+        </div>
+        <p id="message"></p>
+    </div>
+
+    <!-- spesial kondisi pop up jika gift 3 diklik -->
+    <div id="special-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-special-popup" class="close">&times;</span>
+            <p>HIII DIA MEMILIH YANG SEMUA HADIAH, OKEE ENTER PASSWORDNYA DULU</p>
+            <input type="password" id="password-input" placeholder="Masukkan password">
+            <button id="submit-password">Submit</button>
+            <p>INI CLUENYA<br>1. lagu cantikku tapi versiku sendiri<br>2.ada kata "dan" pemisah 2 sifat<br>3. pakai spasi setiap kata</p>
+        </div>
+    </div>
+
+    <div id="coupon-popup" class="cpopup">
+        <div class="popup-coupon">
+            <span id="close-coupon-popup" class="close">&times;</span>
+            <!-- ini untuk bagian foto per data-gift nya -->
+            <img id="coupon-image" src="" class ='couponPopup' alt="Gift Image" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 10px;">
+            <p id="coupon-message"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
