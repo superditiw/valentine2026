@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #ffa0a0, #501010);
+    background:  #ffa0a0;
     color: #333;
     display: flex;
     justify-content: center;
@@ -289,4 +289,5 @@ button:hover {
         width: 50%;
         max-width: 350px;
     }
+
 }
