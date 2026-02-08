@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 let imageSrc = '';
                 let couponMsg = '';
 
-                if (gift === 'Flower') {
+                if (gift === 'FLOWER') {
                     imageSrc = 'images/flowers.png';
                     couponMsg = '🌸 Enjoy your Flower coupon!';
-                } else if (gift === 'Chocolate') {
+                } else if (gift === 'CHOCOLATE') {
                     imageSrc = 'images/chocolates.png';
                     couponMsg = '🍫 Enjoy your Chocolate coupon!';
-                } else if (gift === 'Love') {
+                } else if (gift === 'LOVE') {
                     imageSrc = 'images/love.png';
                     couponMsg = '❤️ Enjoy your Love coupon!';
                 }
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 👉 GIFT KE-3 (PAKAI PASSWORD)
                 if (clickCount === 3) {
-                    message.textContent = `Kamu dapat: ${gift}! (3/2) 🔐 Bonus Gift, `;
+                    message.textContent = `YEAAYY CANTIKKU DAPAT ${gift} COUPON!\n\nSELAMAT DAPAT 3 COUPON YUHUUUUUUUUUU!`;
 
                     lastClickedBtn = this;
 
@@ -89,22 +89,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.dataset.couponImage = imageSrc;
                     this.dataset.couponMessage = couponMsg;
 
-                    specialPopup.style.display = 'block';
+                    // specialPopup.style.display = 'block';
+                    specialPopup.classList.add('active');
                     return;
                 }
 
                 // 👉 GIFT KE-1 & KE-2 (LANGSUNG)
-                message.textContent = `Kamu dapat: ${gift}! (${clickCount}/2)`;
+                message.textContent = `YEAAYY CANTIKKU DAPAT ${gift} COUPON!\n\nada ${clickCount} coupon yang cantikku dapatkan!`;
 
                 couponImage.src = imageSrc;
                 couponMessage.textContent = couponMsg;
                 //couponPopup.style.display = 'block';
                 couponPopup.classList.add('active');
-
-                if (clickCount === 2) {
-                    message.textContent += ' One more gift left 💝';
-                }
-
             });
         });
 
@@ -117,7 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (enteredPassword === correctPassword) {
                     // Password benar: Auto-close popup dan langsung dapat hadiah
                     passwordSubmittedCorrectly = true; // Set flag
-                    specialPopup.style.display = 'none';
+                    // specialPopup.style.display = 'none';
+
+                    specialPopup.classList.remove('active');
 
                     const img = lastClickedBtn.dataset.couponImage;
                     const msg = lastClickedBtn.dataset.couponMessage;
@@ -141,13 +139,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // Logika untuk tombol close (X) pada special popup
         if (closeSpecialPopup) {
             closeSpecialPopup.addEventListener('click', function() {
-                specialPopup.style.display = 'none';
+                // specialPopup.style.display = 'none';
+
+                specialPopup.classList.remove('active');
                 // Jika password belum benar, izinkan klik ulang gift ke-3
                 if (!passwordSubmittedCorrectly && clickCount === 3 && lastClickedBtn) {
                     clickCount = 2; // Kurangi clickCount
                     lastClickedBtn.disabled = false; // Enable tombol kembali
                     lastClickedBtn = null; // Reset
-                    message.textContent = `You have selected 2/2 gifts 🎁`;
+                    message.textContent = `hanya ada 2 coupon yang cantikku dapatkan!`;
                 }
             });
         }
@@ -155,7 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tutup special popup jika klik di luar (opsional)
         window.addEventListener('click', function(event) {
             if (event.target === specialPopup) {
-                specialPopup.style.display = 'none';
+                // specialPopup.style.display = 'none';
+
+                specialPopup.classList.remove('active');
                 // Jika password belum benar, izinkan klik ulang gift ke-3
                 if (!passwordSubmittedCorrectly && clickCount === 3 && lastClickedBtn) {
                     clickCount = 2; // Kurangi clickCount
