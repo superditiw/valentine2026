@@ -68,13 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (gift === 'FLOWER') {
                     imageSrc = 'images/flowers.png';
-                    couponMsg = '🌸 Enjoy your Flower coupon!';
+                    couponMsg = '🌸 save / ss untuk claim hadiahnya! 🌸';
                 } else if (gift === 'CHOCOLATE') {
                     imageSrc = 'images/chocolates.png';
-                    couponMsg = '🍫 Enjoy your Chocolate coupon!';
+                    couponMsg = '🍫 save / ss untuk claim hadiahnya! 🍫';
                 } else if (gift === 'LOVE') {
                     imageSrc = 'images/love.png';
-                    couponMsg = '❤️ Enjoy your Love coupon!';
+                    couponMsg = '❤️ save / ss untuk claim hadiahnya! ❤️';
                 }
 
                 this.disabled = true;
