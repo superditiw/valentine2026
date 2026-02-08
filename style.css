@@ -76,6 +76,11 @@ h5 {
   margin: 8px 0 0;
 }
 
+h4 {
+  color: #771245;
+  margin: 10px 0 0;
+}
+
 .buttons {
   margin-top: 20px;
 }
@@ -124,15 +129,28 @@ button:hover {
   margin-top: 20px;
   font-weight: bold;
   color: #d63384;
+  white-space: pre-line;
 }
 
-.popup {
-  display: none;
+.popup { 
   position: fixed;
-  z-index: 1;
   inset: 0;
-  overflow: auto;
+  z-index: 999;
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
+
   background-color: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .popup-error {
@@ -167,6 +185,7 @@ button:hover {
 }
 
 .popup-content {
+  position: relative;
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -174,6 +193,11 @@ button:hover {
   width: min(90vw, 300px);
   text-align: center;
   border-radius: 10px;
+  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(90vw, 420px); 
 }
 
 .close {
@@ -192,6 +216,25 @@ button:hover {
 }
 
 .close:hover {
+  color: #000;
+}
+
+.closeSpecial {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+
+  position: absolute;
+  right: 12px;
+  top: 6px;
+}
+
+.closeSpecial:hover {
   color: #000;
 }
 
@@ -269,6 +312,10 @@ button:hover {
 
   h5 {
     font-size: 13px;
+  }
+
+  h4 {
+    font-size: 15px;
   }
 
   button {
